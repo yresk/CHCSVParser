@@ -477,6 +477,7 @@ enum {
 		[currentField replaceCharactersInRange:nextSlash withString:@""];
 		
 		NSRange nextSearchRange = NSMakeRange(nextSlash.location + nextSlash.length, 0);
+        if ([currentField length] < nextSearchRange.location) break;
 		nextSearchRange.length = [currentField length] - nextSearchRange.location;
 		nextSlash = [currentField rangeOfString:STRING_BACKSLASH options:NSLiteralSearch range:nextSearchRange];
 	}
